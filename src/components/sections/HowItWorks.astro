@@ -18,7 +18,7 @@ const stepColors = [
 ];
 ---
 
-<section id="how-it-works" class="relative py-24 md:py-32 overflow-hidden">
+<section id="how-it-works" class="relative py-12 sm:py-16 md:py-24 lg:py-32 overflow-hidden">
   <!-- Background pattern -->
   <div class="absolute inset-0 opacity-[0.015]" style="background-image: repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(255, 149, 0, 0.5) 39px, rgba(255, 149, 0, 0.5) 40px), repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(255, 149, 0, 0.5) 39px, rgba(255, 149, 0, 0.5) 40px);" />
 
@@ -36,9 +36,9 @@ const stepColors = [
     <!-- Steps -->
     <div class="relative">
       <!-- Connecting line (desktop) - positioned at center of circles (32px from top) -->
-      <div class="hidden lg:block absolute top-8 left-[8%] right-[8%] h-0.5" style="background: linear-gradient(to right, #8B5CF6 0%, #FF9500 33%, #30D158 66%, #FF453A 100%);" />
+      <div class="hidden lg:block absolute top-8 left-[12%] right-[12%] h-0.5" style="background: linear-gradient(to right, #8B5CF6 0%, #FF9500 33%, #30D158 66%, #FF453A 100%);" />
 
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-6">
         {t.howItWorks.steps.map((step, index) => {
           const colors = stepColors[index] || stepColors[0];
           return (
@@ -47,19 +47,21 @@ const stepColors = [
               delay={index * 0.15}
               direction="up"
             >
-              <div class="relative text-center lg:text-left">
+              <div class="relative text-center">
                 <!-- Number circle -->
-                <div class={`relative z-10 w-16 h-16 mx-auto lg:mx-0 mb-6 rounded-full bg-bg-secondary border-2 flex items-center justify-center font-bold text-xl ${colors.border} ${colors.text}`}>
+                <div class={`relative z-10 w-16 h-16 mx-auto lg:ml-24 lg:mr-8 mb-6 rounded-full bg-bg-secondary border-2 flex items-center justify-center font-bold text-xl ${colors.border} ${colors.text}`}>
                   {step.number}
                 </div>
 
                 <!-- Content -->
-                <h3 class="text-xl font-bold mb-2">
-                  {step.title}
-                </h3>
-                <p class="text-text-secondary text-sm leading-relaxed">
-                  {step.description}
-                </p>
+                <div class="lg:ml-18 lg:mr-0">
+                  <h3 class="text-xl font-bold mb-2">
+                    {step.title}
+                  </h3>
+                  <p class="text-text-secondary text-sm leading-relaxed">
+                    {step.description}
+                  </p>
+                </div>
               </div>
             </ScrollReveal>
           );

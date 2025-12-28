@@ -28,7 +28,7 @@ const cardColors = [
 ];
 ---
 
-<section id="features" class="relative py-24 md:py-32">
+<section id="features" class="relative py-12 sm:py-16 md:py-24 lg:py-32">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Header -->
     <ScrollReveal client:visible className="text-center mb-16">
@@ -41,7 +41,7 @@ const cardColors = [
     </ScrollReveal>
 
     <!-- Features grid -->
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
       {t.features.items.map((feature, index) => {
         const colors = cardColors[index] || cardColors[0];
         return (

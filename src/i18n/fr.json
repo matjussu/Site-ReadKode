@@ -13,7 +13,18 @@
     "title": "Apprends à",
     "titleHighlight": "LIRE   ",
     "titleEnd": "Du code",
-    "subtitle": "70% du temps dev = lire du code. 0 formation existe. Jusqu'à maintenant.",
+    "quotes": [
+      {
+        "text": "Dans 6 mois, nous serons dans un monde où l'IA écrit 90% du code.",
+        "author": "Dario Amodei",
+        "role": "CEO Anthropic, 2025"
+      },
+      {
+        "text": "25% du code produit par Google est généré par l'IA.",
+        "author": "Sundar Pichai",
+        "role": "CEO Google, 2025"
+      }
+    ],
     "cta": "Rejoindre la waitlist",
     "ctaSecondary": "Découvrir",
     "emailPlaceholder": "ton@email.com",
@@ -23,12 +34,16 @@
   "problem": {
     "title": "Le problème que personne ne résout",
     "stat1": {
-      "value": "70%",
-      "label": "du temps dev passé à lire du code"
+      "value": "95%",
+      "label": "du temps dev passé à lire du code",
+      "source": "Microsoft Research",
+      "sourceDetail": "Dora 2025"
     },
     "stat2": {
-      "value": "50%",
-      "label": "du code généré par l'IA en 2025"
+      "value": "46%",
+      "label": "du code écrit par l'IA en 2025",
+      "source": "GitHub",
+      "sourceDetail": "Octoverse Report 2025"
     },
     "stat3": {
       "value": "0",

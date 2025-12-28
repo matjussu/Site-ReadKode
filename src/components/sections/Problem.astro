@@ -11,13 +11,13 @@ const { locale = 'fr' } = Astro.props;
 const t = getTranslations(locale);
 
 const stats = [
-  { value: 70, suffix: '%', label: t.problem.stat1.label, color: 'accent' },
-  { value: 50, suffix: '%', label: t.problem.stat2.label, color: 'warning' },
+  { value: 95, suffix: '%', label: t.problem.stat1.label, color: 'accent', source: t.problem.stat1.source, sourceDetail: t.problem.stat1.sourceDetail },
+  { value: 46, suffix: '%', label: t.problem.stat2.label, color: 'warning', source: t.problem.stat2.source, sourceDetail: t.problem.stat2.sourceDetail },
   { value: 0, suffix: '', label: t.problem.stat3.label, color: 'error' },
 ];
 ---
 
-<section class="relative py-24 md:py-32 overflow-hidden">
+<section class="relative py-12 sm:py-16 md:py-24 lg:py-32 overflow-hidden">
   <!-- Background -->
   <div class="absolute inset-0 bg-bg-code" />
 
@@ -29,7 +29,7 @@ const stats = [
     </ScrollReveal>
 
     <!-- Stats grid -->
-    <div class="grid md:grid-cols-3 gap-8 md:gap-12">
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 lg:gap-12">
       {stats.map((stat, index) => (
         <ScrollReveal
           client:visible
@@ -52,6 +52,12 @@ const stats = [
               <p class="text-text-secondary text-lg">
                 {stat.label}
               </p>
+              {stat.source && (
+                <p class="text-text-tertiary text-xs mt-2 italic">
+                  <span class="text-text-secondary/80 font-medium not-italic">{stat.source}</span>
+                  <span class="text-text-tertiary"> — {stat.sourceDetail}</span>
+                </p>
+              )}
             </div>
           </div>
         </ScrollReveal>
