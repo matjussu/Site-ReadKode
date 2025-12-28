@@ -1,0 +1,41 @@
+# ReadKode
+
+> La première application mobile pour apprendre à LIRE du code.
+
+## À propos
+
+ReadKode est une application mobile éducative qui enseigne aux développeurs comment lire et comprendre du code. Contrairement aux autres plateformes qui se concentrent sur l'écriture de code, ReadKode cible spécifiquement la compétence de lecture de code - une compétence qui représente 95% du temps des développeurs.
+
+## Fonctionnalités principales
+
+- **Exercices interactifs** : 50+ exercices pour prédire le output, trouver les erreurs, tracer les variables
+- **Module IA** : Apprendre à auditer le code généré par ChatGPT, Copilot et autres outils IA
+- **Gamification** : Boss fights, duels PvP en temps réel, streaks, XP et leaderboards
+- **Cours structuré** : 6 modules progressifs, 37 leçons du débutant à l'expert
+- **Mobile-first** : Design iOS natif, fonctionne hors-ligne
+
+## Langages supportés
+
+- Python (disponible)
+- JavaScript (bientôt)
+- Java (bientôt)
+
+## Public cible
+
+- Développeurs débutants et intermédiaires
+- Étudiants en informatique
+- Professionnels souhaitant améliorer leur capacité à lire du code
+- Développeurs utilisant des outils IA pour générer du code
+
+## Liens
+
+- Site web : https://readkode.com
+- Site web (EN) : https://readkode.com/en/
+
+## Contact
+
+- Email : contact@readkode.com
+
+## Statut
+
+Application en développement - Waitlist ouverte sur le site.
