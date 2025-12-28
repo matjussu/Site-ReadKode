@@ -1,0 +1,72 @@
+---
+import { getTranslations } from '../../i18n';
+import ScrollReveal from '../animated/ScrollReveal';
+import Card from '../ui/Card.astro';
+
+interface Props {
+  locale?: 'fr' | 'en';
+}
+
+const { locale = 'fr' } = Astro.props;
+const t = getTranslations(locale);
+
+const iconMap: Record<string, string> = {
+  target: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke-width="2"/><circle cx="12" cy="12" r="6" stroke-width="2"/><circle cx="12" cy="12" r="2" stroke-width="2"/></svg>`,
+  robot: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="12" rx="2" stroke-width="2"/><path d="M12 8V4M8 4h8" stroke-width="2" stroke-linecap="round"/><circle cx="8" cy="14" r="1.5" fill="currentColor"/><circle cx="16" cy="14" r="1.5" fill="currentColor"/><path d="M9 18h6" stroke-width="2" stroke-linecap="round"/></svg>`,
+  gamepad: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="3" stroke-width="2"/><path d="M8 10v4M6 12h4" stroke-width="2" stroke-linecap="round"/><circle cx="16" cy="10" r="1" fill="currentColor"/><circle cx="18" cy="12" r="1" fill="currentColor"/></svg>`,
+  book: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+  smartphone: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="3" stroke-width="2"/><path d="M12 18h.01" stroke-width="2" stroke-linecap="round"/></svg>`,
+};
+
+// Couleurs par card (modifiables dans tailwind.config.mjs)
+const cardColors = [
+  { icon: 'text-card-icon-1', titleHover: 'group-hover:text-card-title-1', bg: 'bg-card-icon-1/10', bgHover: 'group-hover:bg-card-icon-1/20', glow: 'hover:shadow-glow-card-1', border: 'hover:border-card-icon-1/30' },
+  { icon: 'text-card-icon-2', titleHover: 'group-hover:text-card-title-2', bg: 'bg-card-icon-2/10', bgHover: 'group-hover:bg-card-icon-2/20', glow: 'hover:shadow-glow-card-2', border: 'hover:border-card-icon-2/30' },
+  { icon: 'text-card-icon-3', titleHover: 'group-hover:text-card-title-3', bg: 'bg-card-icon-3/10', bgHover: 'group-hover:bg-card-icon-3/20', glow: 'hover:shadow-glow-card-3', border: 'hover:border-card-icon-3/30' },
+  { icon: 'text-card-icon-4', titleHover: 'group-hover:text-card-title-4', bg: 'bg-card-icon-4/10', bgHover: 'group-hover:bg-card-icon-4/20', glow: 'hover:shadow-glow-card-4', border: 'hover:border-card-icon-4/30' },
+  { icon: 'text-card-icon-5', titleHover: 'group-hover:text-card-title-5', bg: 'bg-card-icon-5/10', bgHover: 'group-hover:bg-card-icon-5/20', glow: 'hover:shadow-glow-card-5', border: 'hover:border-card-icon-5/30' },
+];
+---
+
+<section id="features" class="relative py-24 md:py-32">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Header -->
+    <ScrollReveal client:visible className="text-center mb-16">
+      <h2 class="section-title mb-4">
+        {t.features.title.before}<span class="text-logo-slash">{t.features.title.slash}</span><span class="text-logo-bracket">{t.features.title.bracket}</span>{t.features.title.after}
+      </h2>
+      <p class="section-subtitle mx-auto">
+        {t.features.subtitle}
+      </p>
+    </ScrollReveal>
+
+    <!-- Features grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+      {t.features.items.map((feature, index) => {
+        const colors = cardColors[index] || cardColors[0];
+        return (
+          <ScrollReveal
+            client:visible
+            delay={index * 0.1}
+            className={index === 0 ? 'md:col-span-2 lg:col-span-1' : ''}
+          >
+            <Card variant="default" padding="lg" class={`h-full group border border-transparent ${colors.glow} ${colors.border}`}>
+              <!-- Icon -->
+              <div class={`w-14 h-14 rounded-xl ${colors.bg} flex items-center justify-center mb-6 ${colors.icon} ${colors.bgHover} transition-colors duration-300`}>
+                <Fragment set:html={iconMap[feature.icon]} />
+              </div>
+
+              <!-- Content -->
+              <h3 class={`text-xl font-bold mb-3 ${colors.titleHover} transition-colors duration-300`}>
+                {feature.title}
+              </h3>
+              <p class="text-text-secondary leading-relaxed">
+                {feature.description}
+              </p>
+            </Card>
+          </ScrollReveal>
+        );
+      })}
+    </div>
+  </div>
+</section>

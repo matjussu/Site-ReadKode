@@ -1,0 +1,68 @@
+---
+import { getTranslations } from '../../i18n';
+import ScrollReveal from '../animated/ScrollReveal';
+import CounterAnimation from '../animated/CounterAnimation';
+
+interface Props {
+  locale?: 'fr' | 'en';
+}
+
+const { locale = 'fr' } = Astro.props;
+const t = getTranslations(locale);
+
+const stats = [
+  { value: 70, suffix: '%', label: t.problem.stat1.label, color: 'accent' },
+  { value: 50, suffix: '%', label: t.problem.stat2.label, color: 'warning' },
+  { value: 0, suffix: '', label: t.problem.stat3.label, color: 'error' },
+];
+---
+
+<section class="relative py-24 md:py-32 overflow-hidden">
+  <!-- Background -->
+  <div class="absolute inset-0 bg-bg-code" />
+
+  <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <ScrollReveal client:visible className="text-center mb-16">
+      <h2 class="section-title mb-4">
+        {t.problem.title}
+      </h2>
+    </ScrollReveal>
+
+    <!-- Stats grid -->
+    <div class="grid md:grid-cols-3 gap-8 md:gap-12">
+      {stats.map((stat, index) => (
+        <ScrollReveal
+          client:visible
+          delay={index * 0.15}
+          className="text-center"
+        >
+          <div class="relative p-8 rounded-xl bg-bg-secondary/50 border border-white/5 group hover:border-accent/20 transition-all duration-300">
+            <!-- Glow effect on hover -->
+            <div class={`absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 ${stat.color === 'accent' ? 'bg-accent/5' : stat.color === 'warning' ? 'bg-warning/5' : 'bg-error/5'}`} />
+
+            <div class="relative">
+              <div class={`text-6xl md:text-7xl font-bold mb-4 ${stat.color === 'accent' ? 'text-accent' : stat.color === 'warning' ? 'text-warning' : 'text-error'}`}>
+                <CounterAnimation
+                  client:visible
+                  value={stat.value}
+                  suffix={stat.suffix}
+                  duration={2}
+                />
+              </div>
+              <p class="text-text-secondary text-lg">
+                {stat.label}
+              </p>
+            </div>
+          </div>
+        </ScrollReveal>
+      ))}
+    </div>
+
+    <!-- Conclusion -->
+    <ScrollReveal client:visible delay={0.5} className="text-center mt-16">
+      <p class="text-2xl md:text-3xl font-semibold">
+        <span class="text-tagline-read">{t.problem.conclusion.read}</span><span class="text-tagline-slash">{t.problem.conclusion.slash}</span><span class="text-tagline-bracket">{t.problem.conclusion.bracket}</span><span class="text-tagline-text">{t.problem.conclusion.text}</span><span class="text-tagline-dot">{t.problem.conclusion.dot}</span>
+      </p>
+    </ScrollReveal>
+  </div>
+</section>

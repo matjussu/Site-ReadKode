@@ -1,0 +1,121 @@
+---
+import { getTranslations } from '../../i18n';
+
+interface Props {
+  locale?: 'fr' | 'en';
+}
+
+const { locale = 'fr' } = Astro.props;
+const t = getTranslations(locale);
+const otherLocale = locale === 'fr' ? 'en' : 'fr';
+const otherLocaleUrl = locale === 'fr' ? '/en' : '/';
+---
+
+<nav class="fixed top-0 left-0 right-0 z-50 glass">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <!-- Logo -->
+      <a href={locale === 'fr' ? '/' : '/en'} class="flex items-center gap-2 group">
+        <img
+          src="/images/logo.png"
+          alt="ReadKode"
+          class="h-8 w-8 transition-transform duration-300 group-hover:scale-110"
+        />
+        <span class="text-xl font-bold text-text-primary">
+          Read<span class="text-logo-slash">/</span><span class="text-logo-bracket">&lt;</span>ode
+        </span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <div class="hidden md:flex items-center gap-8">
+        <a
+          href="#features"
+          class="text-text-secondary hover:text-text-primary transition-colors duration-200"
+        >
+          {t.nav.features}
+        </a>
+        <a
+          href="#how-it-works"
+          class="text-text-secondary hover:text-text-primary transition-colors duration-200"
+        >
+          {t.nav.howItWorks}
+        </a>
+
+        <!-- Language Toggle -->
+        <a
+          href={otherLocaleUrl}
+          class="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-bg-tertiary/50 hover:bg-bg-tertiary transition-colors duration-200"
+        >
+          <span class="text-sm font-medium">{otherLocale.toUpperCase()}</span>
+        </a>
+
+        <!-- CTA Button -->
+        <a
+          href="#waitlist"
+          class="btn-primary text-sm py-2 px-4"
+        >
+          {t.nav.download}
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button
+        id="mobile-menu-button"
+        class="md:hidden p-2 rounded-md hover:bg-bg-tertiary transition-colors duration-200"
+        aria-label="Menu"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden md:hidden glass border-t border-white/10">
+    <div class="px-4 py-4 space-y-4">
+      <a
+        href="#features"
+        class="block text-text-secondary hover:text-text-primary transition-colors duration-200"
+      >
+        {t.nav.features}
+      </a>
+      <a
+        href="#how-it-works"
+        class="block text-text-secondary hover:text-text-primary transition-colors duration-200"
+      >
+        {t.nav.howItWorks}
+      </a>
+      <div class="flex items-center gap-4 pt-2">
+        <a
+          href={otherLocaleUrl}
+          class="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-bg-tertiary/50 hover:bg-bg-tertiary transition-colors duration-200"
+        >
+          <span class="text-sm font-medium">{otherLocale.toUpperCase()}</span>
+        </a>
+        <a
+          href="#waitlist"
+          class="btn-primary text-sm py-2 px-4 flex-1 text-center"
+        >
+          {t.nav.download}
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<script>
+  const menuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  menuButton?.addEventListener('click', () => {
+    mobileMenu?.classList.toggle('hidden');
+  });
+
+  // Close menu when clicking on links
+  mobileMenu?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu?.classList.add('hidden');
+    });
+  });
+</script>

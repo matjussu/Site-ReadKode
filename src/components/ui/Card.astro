@@ -1,0 +1,33 @@
+---
+interface Props {
+  variant?: 'default' | 'glow' | 'glass';
+  padding?: 'sm' | 'md' | 'lg';
+  class?: string;
+}
+
+const {
+  variant = 'default',
+  padding = 'md',
+  class: className = '',
+} = Astro.props;
+
+const baseClasses = 'rounded-lg transition-all duration-300';
+
+const variantClasses = {
+  default: 'bg-bg-secondary hover:bg-bg-tertiary hover:shadow-card-hover',
+  glow: 'bg-bg-secondary hover:bg-bg-tertiary hover:shadow-glow-accent border border-transparent hover:border-accent/30',
+  glass: 'glass hover:bg-bg-secondary/90',
+};
+
+const paddingClasses = {
+  sm: 'p-4',
+  md: 'p-6',
+  lg: 'p-8',
+};
+
+const classes = `${baseClasses} ${variantClasses[variant]} ${paddingClasses[padding]} ${className}`;
+---
+
+<div class={classes}>
+  <slot />
+</div>

@@ -1,0 +1,70 @@
+---
+import { getTranslations } from '../../i18n';
+import ScrollReveal from '../animated/ScrollReveal';
+
+interface Props {
+  locale?: 'fr' | 'en';
+}
+
+const { locale = 'fr' } = Astro.props;
+const t = getTranslations(locale);
+
+// Couleurs des steps (modifiables dans tailwind.config.mjs)
+const stepColors = [
+  { border: 'border-step-1', text: 'text-step-1' },  // Violet
+  { border: 'border-step-2', text: 'text-step-2' },  // Orange
+  { border: 'border-step-3', text: 'text-step-3' },  // Vert
+  { border: 'border-step-4', text: 'text-step-4' },  // Rouge
+];
+---
+
+<section id="how-it-works" class="relative py-24 md:py-32 overflow-hidden">
+  <!-- Background pattern -->
+  <div class="absolute inset-0 opacity-[0.015]" style="background-image: repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(255, 149, 0, 0.5) 39px, rgba(255, 149, 0, 0.5) 40px), repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(255, 149, 0, 0.5) 39px, rgba(255, 149, 0, 0.5) 40px);" />
+
+  <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Header -->
+    <ScrollReveal client:visible className="text-center mb-16">
+      <h2 class="section-title mb-4">
+        {t.howItWorks.title}
+      </h2>
+      <p class="section-subtitle mx-auto">
+        {t.howItWorks.subtitle}
+      </p>
+    </ScrollReveal>
+
+    <!-- Steps -->
+    <div class="relative">
+      <!-- Connecting line (desktop) - positioned at center of circles (32px from top) -->
+      <div class="hidden lg:block absolute top-8 left-[8%] right-[8%] h-0.5" style="background: linear-gradient(to right, #8B5CF6 0%, #FF9500 33%, #30D158 66%, #FF453A 100%);" />
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6">
+        {t.howItWorks.steps.map((step, index) => {
+          const colors = stepColors[index] || stepColors[0];
+          return (
+            <ScrollReveal
+              client:visible
+              delay={index * 0.15}
+              direction="up"
+            >
+              <div class="relative text-center lg:text-left">
+                <!-- Number circle -->
+                <div class={`relative z-10 w-16 h-16 mx-auto lg:mx-0 mb-6 rounded-full bg-bg-secondary border-2 flex items-center justify-center font-bold text-xl ${colors.border} ${colors.text}`}>
+                  {step.number}
+                </div>
+
+                <!-- Content -->
+                <h3 class="text-xl font-bold mb-2">
+                  {step.title}
+                </h3>
+                <p class="text-text-secondary text-sm leading-relaxed">
+                  {step.description}
+                </p>
+              </div>
+            </ScrollReveal>
+          );
+        })}
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,124 @@
+{
+  "meta": {
+    "title": "ReadKode - Apprends à lire du code",
+    "description": "La première application mobile pour apprendre à LIRE du code."
+  },
+  "nav": {
+    "features": "Fonctionnalités",
+    "howItWorks": "Comment ça marche",
+    "download": "Télécharger"
+  },
+  "hero": {
+    "badge": "Bientôt disponible",
+    "title": "Apprends à",
+    "titleHighlight": "LIRE   ",
+    "titleEnd": "Du code",
+    "subtitle": "70% du temps dev = lire du code. 0 formation existe. Jusqu'à maintenant.",
+    "cta": "Rejoindre la waitlist",
+    "ctaSecondary": "Découvrir",
+    "emailPlaceholder": "ton@email.com",
+    "waitlistSuccess": "Tu es sur la liste !",
+    "comingSoon": "Bientôt sur"
+  },
+  "problem": {
+    "title": "Le problème que personne ne résout",
+    "stat1": {
+      "value": "70%",
+      "label": "du temps dev passé à lire du code"
+    },
+    "stat2": {
+      "value": "50%",
+      "label": "du code généré par l'IA en 2025"
+    },
+    "stat3": {
+      "value": "0",
+      "label": "formation pour apprendre à lire"
+    },
+    "conclusion": {
+      "read": "Read",
+      "slash": "/",
+      "bracket": "<",
+      "text": "ode change la donne",
+      "dot": "."
+    }
+  },
+  "features": {
+    "title": {
+      "before": "Pourquoi Read",
+      "slash": "/",
+      "bracket": "<",
+      "after": "ode ?"
+    },
+    "subtitle": "Une approche unique pour maîtriser la lecture de code",
+    "items": [
+      {
+        "icon": "target",
+        "title": "Apprendre à LIRE",
+        "description": "50+ exercices interactifs. Prédis le output, trouve les erreurs, trace les variables."
+      },
+      {
+        "icon": "robot",
+        "title": "Comprendre le code IA",
+        "description": "Module unique pour auditer le code généré par ChatGPT, Copilot... . Détecte bugs et hallucinations."
+      },
+      {
+        "icon": "gamepad",
+        "title": "Gamification engageante",
+        "description": "Boss fights, duels PvP en temps réel, streaks, XP et leaderboards. Vient montrer qui est le meilleur."
+      },
+      {
+        "icon": "book",
+        "title": "Cours structuré",
+        "description": "6 modules progressifs, 37 leçons. Du débutant à l'expert, à ton rythme."
+      },
+      {
+        "icon": "smartphone",
+        "title": "Mobile-first",
+        "description": "Design iOS natif, fonctionne hors-ligne. Apprends n'importe où, n'importe quand."
+      }
+    ]
+  },
+  "howItWorks": {
+    "title": "Comment ça marche ?",
+    "subtitle": "4 étapes pour devenir un pro de la lecture de code",
+    "steps": [
+      {
+        "number": "01",
+        "title": "Choisis ton langage",
+        "description": "Commence avec Python, bientôt JavaScript, Java et plus."
+      },
+      {
+        "number": "02",
+        "title": "Entraîne-toi",
+        "description": "Exercices interactifs avec feedback instantané et explications détaillées."
+      },
+      {
+        "number": "03",
+        "title": "Progresse",
+        "description": "Gagne de l'XP, monte de niveau, débloque des modules avancés."
+      },
+      {
+        "number": "04",
+        "title": "Maîtrise",
+        "description": "Affronte les boss, défie tes amis en duel, domine le leaderboard."
+      }
+    ]
+  },
+  "appPreview": {
+    "title": "Aperçu de l'app",
+    "subtitle": "Une interface pensée pour l'apprentissage mobile"
+  },
+  "cta": {
+    "title": "Prêt à lire du code comme un pro ?",
+    "subtitle": "Rejoins des milliers de développeurs qui apprennent autrement.",
+    "button": "Rejoindre la waitlist",
+    "emailPlaceholder": "ton@email.com"
+  },
+  "footer": {
+    "tagline": "Apprends à lire du code, pas à l'écrire.",
+    "legal": "Mentions légales",
+    "privacy": "Confidentialité",
+    "contact": "Contact",
+    "copyright": "© 2025 ReadKode. Tous droits réservés."
+  }
+}

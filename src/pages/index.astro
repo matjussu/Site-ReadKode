@@ -1,0 +1,22 @@
+---
+import Layout from '../components/layout/Layout.astro';
+import Hero from '../components/sections/Hero.astro';
+import Problem from '../components/sections/Problem.astro';
+import Features from '../components/sections/Features.astro';
+import HowItWorks from '../components/sections/HowItWorks.astro';
+import AppPreview from '../components/sections/AppPreview.astro';
+import CTA from '../components/sections/CTA.astro';
+import { getTranslations } from '../i18n';
+
+const locale = 'fr';
+const t = getTranslations(locale);
+---
+
+<Layout title={t.meta.title} description={t.meta.description} locale={locale}>
+  <Hero locale={locale} />
+  <Problem locale={locale} />
+  <Features locale={locale} />
+  <HowItWorks locale={locale} />
+  <AppPreview locale={locale} />
+  <CTA locale={locale} />
+</Layout>
