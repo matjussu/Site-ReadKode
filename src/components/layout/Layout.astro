@@ -18,6 +18,15 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Google Analytics -->
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-WY4SQ1HY3Q"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-WY4SQ1HY3Q');
+    </script>
     <meta name="description" content={description} />
     <meta name="author" content="ReadKode" />
     <meta name="keywords" content="apprendre programmation, lire code, Python, exercices code, ReadKode, learn coding, read code" />
@@ -29,19 +38,25 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="apple-touch-icon" href="/favicon.png" />
 
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="ReadKode" />
+
     <!-- Open Graph -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalURL} />
-    <meta property="og:image" content="/images/og-image.png" />
+    <meta property="og:image" content="https://readkode.com/images/og-image.png" />
     <meta property="og:locale" content={locale === 'fr' ? 'fr_FR' : 'en_US'} />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content="/images/og-image.png" />
+    <meta name="twitter:image" content="https://readkode.com/images/og-image.png" />
 
     <!-- Theme Color -->
     <meta name="theme-color" content="#1A1919" />
@@ -51,6 +66,43 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <!-- Preconnect to Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- JSON-LD Schema -->
+    <script is:inline type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "name": "ReadKode",
+          "url": "https://readkode.com",
+          "logo": "https://readkode.com/favicon.png",
+          "description": locale === 'fr'
+            ? "La première application mobile pour apprendre à LIRE du code."
+            : "The first mobile app to learn how to READ code.",
+          "sameAs": []
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "ReadKode",
+          "operatingSystem": "iOS, Android",
+          "applicationCategory": "EducationalApplication",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "EUR"
+          },
+          "description": locale === 'fr'
+            ? "Apprends à lire du code avec des exercices interactifs, des duels PvP et une gamification engageante."
+            : "Learn to read code with interactive exercises, PvP duels and engaging gamification."
+        },
+        {
+          "@type": "WebSite",
+          "name": "ReadKode",
+          "url": "https://readkode.com",
+          "inLanguage": locale === 'fr' ? "fr-FR" : "en-US"
+        }
+      ]
+    })} />
   </head>
   <body class="bg-bg-primary text-text-primary font-mono antialiased">
     <Navbar locale={locale} />

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://readkode.com/sitemap-index.xml
