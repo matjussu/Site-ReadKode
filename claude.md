@@ -2,7 +2,8 @@
 
 ## Project Overview
 
-Landing page pour **ReadKode**, une application mobile qui enseigne aux développeurs à **LIRE** le code (70% du temps de dev est consacré à la lecture de code).
+Landing page pour **ReadKode**, une application mobile révolutionnaire qui enseigne aux développeurs à **LIRE** le code.
+Partant du constat que 70% du temps de développement est consacré à la lecture, ReadKode gamifie cet apprentissage.
 
 - **URL Production:** https://readkode.app
 - **Langues:** Français (défaut), Anglais (/en)
@@ -11,214 +12,132 @@ Landing page pour **ReadKode**, une application mobile qui enseigne aux dévelop
 
 | Technologie | Version | Usage |
 |-------------|---------|-------|
-| Astro | 5.x | SSG (Static Site Generation) |
-| React | 19.x | Composants interactifs |
-| TypeScript | strict | Typage |
-| Tailwind CSS | 3.x | Styling utility-first |
-| Framer Motion | 12.x | Animations scroll |
+| **Astro** | 5.16+ | Framework SSG (Static Site Generation) principal |
+| **React** | 19.x | Composants interactifs & Animations complexes |
+| **TypeScript** | Strict | Typage statique pour la robustesse |
+| **Tailwind CSS** | 3.x | Styling utility-first & Design System |
+| **Framer Motion** | 12.x | Moteur d'animations (scroll, interactions) |
+| **Vite** | 5.x | Bundler rapide (sous le capot d'Astro) |
+
+### Outils de Développement
+- **Micromorph**: Transitions de pages douces
+- **Pinegrow**: Intégration visuelle (plugin Astro)
 
 ## Structure du Projet
 
-```
+```text
 src/
 ├── components/
-│   ├── animated/      # Composants React + Framer Motion
-│   │   ├── CounterAnimation.tsx   # Animation de nombres
-│   │   ├── FloatingElement.tsx    # Éléments flottants
-│   │   ├── ParallaxImage.tsx      # Effet parallax
+│   ├── animated/          # Composants React + Framer Motion (Interactivité)
+│   │   ├── CounterAnimation.tsx   # Compteur incrémental animé
+│   │   ├── FloatingElement.tsx    # Animation de flottement continu
+│   │   ├── ParallaxImage.tsx      # Effet de profondeur au scroll
+│   │   ├── PhoneCarousel.tsx      # Carrousel de screenshots mobile
 │   │   ├── PhoneMockup.tsx        # Mockup iPhone 3D
-│   │   └── ScrollReveal.tsx       # Révélation au scroll
-│   ├── layout/
-│   │   ├── Layout.astro           # Layout principal + SEO
-│   │   └── Navbar.astro           # Navigation fixe
-│   ├── sections/      # Sections de la page
-│   │   ├── Hero.astro
-│   │   ├── Problem.astro
-│   │   ├── Features.astro
-│   │   ├── HowItWorks.astro
-│   │   ├── AppPreview.astro
-│   │   ├── CTA.astro
-│   │   └── Footer.astro
-│   └── ui/            # Composants atomiques
-│       ├── Button.astro
-│       ├── Card.astro
-│       └── Badge.astro
-├── i18n/              # Internationalisation
-│   ├── index.ts       # Utilitaires i18n
-│   ├── fr.json        # Traductions FR
-│   └── en.json        # Traductions EN
-├── pages/
-│   ├── index.astro    # Page FR (/)
-│   └── en/index.astro # Page EN (/en)
+│   │   └── ScrollReveal.tsx       # Wrapper pour révéler le contenu
+│   ├── layout/            # Structure globale
+│   │   ├── Layout.astro           # <head>, SEO, styles globaux
+│   │   └── Navbar.astro           # Navigation responsive
+│   ├── sections/          # Blocs de contenu majeurs
+│   │   ├── Hero.astro             # En-tête avec CTA principal
+│   │   ├── Problem.astro          # Section "Le problème"
+│   │   ├── Features.astro         # Grille de fonctionnalités
+│   │   ├── HowItWorks.astro       # Étapes (Steps)
+│   │   ├── AppPreview.astro       # Aperçu de l'interface
+│   │   ├── CTA.astro              # Formulaire final
+│   │   └── Footer.astro           # Pied de page
+│   └── ui/                # Composants atomiques réutilisables
+│       ├── Button.astro           # Boutons (Primary, Secondary, Accent)
+│       ├── Card.astro             # Conteneur générique
+│       └── Badge.astro            # Étiquettes
+├── i18n/                  # Gestion des langues
+│   ├── index.ts           # Logique de traduction & détection locale
+│   ├── fr.json            # Base de texte FR
+│   └── en.json            # Base de texte EN
+├── pages/                 # Routes
+│   ├── index.astro        # Page d'accueil FR (/)
+│   ├── 404.astro          # Page non trouvée
+│   └── en/                # Version Anglaise
+│       └── index.astro    # Page d'accueil EN (/en)
 └── styles/
-    └── global.css     # Tailwind + utilitaires custom
+    └── global.css         # Reset, @layer components, polices
 ```
+
+## Design System
+
+Le design vise une esthétique **"Premium Dark Mode"** (inspiré d'iOS et des IDE modernes).
+
+### Couleurs (Tailwind Config)
+| Token | Hex | Usage |
+|-------|-----|-------|
+| `bg-primary` | `#1A1919` | Fond principal |
+| `bg-secondary` | `#2C2C2E` | Cartes, Sections alternées |
+| `accent` | `#30D158` | Vert "Success" (Action principale) |
+| `warning` | `#FF9500` | Orange (Accents secondaires) |
+| `error` | `#FF453A` | Rouge (Erreurs, Belts) |
+| `text-primary` | `#FFFFFF` | Titres, texte corps |
+| `text-secondary` | `#8E8E93` | Sous-titres, détails |
+
+### Typographie
+- **Primaire (Corps/Headings):** `JetBrains Mono` (Monospace moderne, lisible pour le code)
+- **Display (Fun/Rétro):** `Jersey 25` (Utilisé pour des touches stylistiques pixel/rétro)
+
+### Classes Utilitaires Globales (`src/styles/global.css`)
+- **Boutons**: `.btn-primary`, `.btn-secondary`, `.btn-accent` (incluent hover, active, transitions)
+- **Cartes**: `.card`, `.card-glow` (avec ombres colorées)
+- **Texte**: `.section-title`, `.section-subtitle`, `.gradient-text` (dégradé Orange->Jaune)
+- **Effets**: `.glass` (Backdrop blur)
+
+## Développement & Conventions
+
+### 1. Composants Astro vs React
+- **Utiliser Astro (.astro)** par défaut pour tout ce qui est statique (Layout, Texte, Images, Structure).
+- **Utiliser React (.tsx)** UNIQUEMENT pour :
+  - La gestion d'état (useState, useEffect).
+  - Les animations interactives (Framer Motion).
+  - Les carrousels ou éléments complexes (ex: `PhoneCarousel`).
+- **Hydratation**: Toujours utiliser `client:visible` pour les composants React afin d'optimiser les performances (loading lazy).
+
+### 2. Internationalisation (i18n)
+Toute chaîne de texte visible DOIT passer par le système de traduction.
+```typescript
+import { t, getLocale } from '../i18n';
+const locale = getLocale(Astro.url);
+// Usage
+{t('section.key', locale)}
+```
+*Ne jamais hardcoder de texte dans les fichiers .astro ou .tsx.*
+
+### 3. Responsive & Mobile-First
+- Le design doit être impeccable sur mobile (iPhone SE, `xs: 375px`).
+- Utiliser les classes utilitaires `touch-manipulation` et `min-touch-target` pour l'accessibilité tactile.
+- Breakpoints: `sm` (640px), `md` (768px), `lg` (1024px).
+
+### 4. SEO & Performance
+- Les balises meta sont gérées dans `Layout.astro`.
+- Les images sont dans `public/images` ou optimisées par Astro.
+- `Astro.generator` est inclus dans les meta.
 
 ## Commandes
 
 ```bash
-npm run dev      # Serveur de développement (:4321)
-npm run build    # Build production → ./dist/
-npm run preview  # Preview du build
+npm run dev      # Lancer le serveur local (http://localhost:4321)
+npm run build    # Générer le site statique dans ./dist
+npm run preview  # Tester le build localement
 ```
-
-## Conventions de Code
-
-### Composants Astro (.astro)
-
-- Sections et UI statiques
-- Props typées en TypeScript dans le frontmatter
-- Styles avec classes Tailwind
-
-```astro
----
-interface Props {
-  title: string;
-  variant?: 'primary' | 'secondary';
-}
-const { title, variant = 'primary' } = Astro.props;
----
-<div class="bg-background text-text-primary">
-  {title}
-</div>
-```
-
-### Composants React (.tsx)
-
-- Uniquement pour les animations et interactions
-- Utiliser `client:visible` pour le lazy loading
-- Framer Motion pour les animations scroll
-
-```tsx
-// Exemple d'usage dans un fichier .astro
-<ScrollReveal client:visible>
-  <Content />
-</ScrollReveal>
-```
-
-### Internationalisation (i18n)
-
-```typescript
-import { t, getLocale } from '../i18n';
-
-// Dans un composant
-const locale = getLocale(Astro.url);
-const text = t('hero.title', locale);
-```
-
-Structure des fichiers JSON :
-```json
-{
-  "hero": {
-    "title": "Apprends à LIRE le code",
-    "subtitle": "..."
-  }
-}
-```
-
-### Couleurs (Theme iOS Dark)
-
-```
-background:       #1A1919  (fond principal)
-background-secondary: #2C2C2E
-accent:           #30D158  (vert iOS)
-warning:          #FF9500  (orange)
-error:            #FF453A  (rouge)
-text-primary:     #FFFFFF
-text-secondary:   #8E8E93
-```
-
-### Classes Tailwind Personnalisées
-
-```css
-/* Ombres */
-shadow-glow-accent  /* Lueur verte */
-shadow-card         /* Ombre carte */
-shadow-card-hover   /* Ombre survol */
-
-/* Animations */
-animate-float       /* Flottement */
-animate-pulse-glow  /* Pulsation */
-animate-slide-up    /* Glissement haut */
-animate-fade-in     /* Fondu */
-```
-
-## Patterns d'Animation
-
-### Révélation au scroll
-```astro
-<ScrollReveal client:visible delay={0.2}>
-  <Card />
-</ScrollReveal>
-```
-
-### Compteur animé
-```astro
-<CounterAnimation client:visible target={70} suffix="%" />
-```
-
-### Parallax
-```astro
-<PhoneMockup client:visible imageSrc="/images/screenshot.png" />
-```
-
-## Formulaire (CTA)
-
-Le formulaire utilise FormSubmit.co :
-- Endpoint: `https://formsubmit.co/ajax/{email}`
-- Méthode: POST avec fetch
-- Protection spam: honeypot field
-
-## SEO
-
-Configuré dans `Layout.astro` :
-- Meta tags (title, description)
-- Open Graph
-- Twitter Cards
-- Sitemap auto-généré
-- Favicon
-
-## Déploiement
-
-- **Plateforme:** Vercel
-- **Build:** Automatique sur push
-- **Headers:** Sécurité (X-Frame-Options, etc.)
-- **Cache:** 1 an pour /images/ et /_astro/
-
-## Choses à Éviter
-
-1. **Ne pas** ajouter de dépendances sans raison valable
-2. **Ne pas** utiliser `client:load` - préférer `client:visible`
-3. **Ne pas** modifier les couleurs sans respecter le thème iOS
-4. **Ne pas** oublier les traductions dans les deux fichiers JSON
-5. **Ne pas** créer de nouveaux composants React pour du contenu statique
-
-## Fichiers de Configuration Importants
-
-| Fichier | Description |
-|---------|-------------|
-| `astro.config.mjs` | Config Astro, i18n, intégrations |
-| `tailwind.config.mjs` | Thème, couleurs, animations |
-| `vercel.json` | Déploiement, headers, cache |
-| `tsconfig.json` | TypeScript strict |
 
 ## Assets
 
-```
-public/
-├── images/
-│   ├── logo.png, long_logo.png, full_logo.png
-│   ├── Mascotte*.svg     # Mascottes animées
-│   └── screenshots/      # Captures de l'app
-├── favicon.png
-└── favicon.svg
-```
+Les assets statiques se trouvent dans `public/` :
+- `images/Mascotte*.svg`: Animations SVG légères.
+- `images/screenshots/`: Captures d'écran pour les mockups.
+- `favicon.*`: Icônes du site.
 
-## Workflow de Développement
+## À Faire / Roadmap Rapide
 
-1. Créer/modifier les traductions dans `src/i18n/fr.json` et `src/i18n/en.json`
-2. Créer les composants UI statiques en `.astro`
-3. Ajouter des animations avec des composants React + `client:visible`
-4. Tester les deux langues (/ et /en)
-5. Vérifier le responsive (mobile-first)
-6. Build et preview avant push
+1. **Ajout de Pages**: Si de nouvelles pages sont demandées (ex: Blog, Mentions Légales), créer un fichier `.astro` dans `src/pages/` et son équivalent dans `src/pages/en/`.
+2. **Maintenance**: Vérifier régulièrement les traductions manquantes dans `fr.json` vs `en.json`.
+3. **Optimisation**: Surveiller le poids du bundle JS (l'hydratation React doit rester minimale).
+
+---
+*Ce fichier sert de référence pour le contexte du projet. Mettez-le à jour si l'architecture change.*
