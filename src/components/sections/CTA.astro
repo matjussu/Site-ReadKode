@@ -11,7 +11,7 @@ const { locale = 'fr' } = Astro.props;
 const t = getTranslations(locale);
 ---
 
-<section id="waitlist" class="relative py-12 sm:py-16 md:py-24 lg:py-32 overflow-hidden">
+<section id="waitlist" class="relative py-20 sm:py-28 md:py-36 lg:py-44 overflow-hidden">
   <!-- Background gradient -->
   <div class="absolute inset-0 bg-gradient-to-b from-bg-primary via-bg-secondary/50 to-bg-primary" />
 
@@ -22,22 +22,22 @@ const t = getTranslations(locale);
   <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
     <ScrollReveal client:visible>
       <!-- Mascotte -->
-      <div class="mb-8">
+      <div class="mb-10">
         <img
-          src="/images/Mascotte Happy.svg"
+          src="/images/mascot/happy.svg"
           alt="ReadKode Mascotte"
-          class="w-24 h-24 mx-auto animate-float"
+          class="w-32 h-32 lg:w-40 lg:h-40 mx-auto animate-float"
         />
       </div>
 
       <!-- Title -->
-      <h2 class="section-title mb-4">
-        {t.cta.title}
+      <h2 class="section-title mb-6">
+        Sois prêt au lancement.
       </h2>
 
       <!-- Subtitle -->
-      <p class="section-subtitle mx-auto mb-10">
-        {t.cta.subtitle}
+      <p class="section-subtitle mx-auto mb-12 text-lg">
+        Inscris-toi et sois parmi les premiers à apprendre à lire du code.
       </p>
 
       <!-- Waitlist form -->
@@ -72,9 +72,17 @@ const t = getTranslations(locale);
           </Button>
         </div>
 
-        <!-- Success message (hidden by default) -->
-        <p id="success-message" class="hidden mt-4 text-success font-medium">
+        <!-- Success message -->
+        <p id="success-message" class="hidden mt-4 text-success font-medium animate-slide-up">
           {t.hero.waitlistSuccess} 🎉
+        </p>
+        <!-- Error message -->
+        <p id="error-message" class="hidden mt-4 text-error font-medium animate-slide-up">
+          Une erreur est survenue. Réessaie.
+        </p>
+        <!-- Loading state -->
+        <p id="loading-message" class="hidden mt-4 text-text-secondary font-medium">
+          <span class="inline-block animate-pulse">Inscription en cours...</span>
         </p>
       </form>
 
@@ -111,20 +119,37 @@ const t = getTranslations(locale);
 <script>
   const form = document.getElementById('waitlist-form');
   const successMessage = document.getElementById('success-message');
+  const errorMessage = document.getElementById('error-message');
+  const loadingMessage = document.getElementById('loading-message');
+  const submitBtn = form?.querySelector('button[type="submit"]');
 
   form?.addEventListener('submit', async (e) => {
     e.preventDefault();
     const formData = new FormData(form as HTMLFormElement);
+    const email = formData.get('email') as string;
+
+    // Validate email
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      errorMessage!.textContent = 'Entre une adresse email valide.';
+      errorMessage?.classList.remove('hidden');
+      setTimeout(() => errorMessage?.classList.add('hidden'), 3000);
+      return;
+    }
+
+    // Show loading
+    successMessage?.classList.add('hidden');
+    errorMessage?.classList.add('hidden');
+    loadingMessage?.classList.remove('hidden');
+    if (submitBtn) (submitBtn as HTMLButtonElement).disabled = true;
 
     try {
       await fetch((form as HTMLFormElement).action, {
         method: 'POST',
         body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
+        headers: { 'Accept': 'application/json' }
       });
 
+      loadingMessage?.classList.add('hidden');
       successMessage?.classList.remove('hidden');
       (form as HTMLFormElement).reset();
 
@@ -132,7 +157,12 @@ const t = getTranslations(locale);
         successMessage?.classList.add('hidden');
       }, 5000);
     } catch (error) {
-      console.error('Form submission error:', error);
+      loadingMessage?.classList.add('hidden');
+      errorMessage!.textContent = 'Une erreur est survenue. Réessaie.';
+      errorMessage?.classList.remove('hidden');
+      setTimeout(() => errorMessage?.classList.add('hidden'), 4000);
+    } finally {
+      if (submitBtn) (submitBtn as HTMLButtonElement).disabled = false;
     }
   });
 </script>

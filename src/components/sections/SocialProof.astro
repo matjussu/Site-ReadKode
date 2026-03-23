@@ -1,0 +1,65 @@
+---
+import { getTranslations } from '../../i18n';
+import ScrollReveal from '../animated/ScrollReveal';
+
+interface Props {
+  locale?: 'fr' | 'en';
+}
+
+const { locale = 'fr' } = Astro.props;
+const t = getTranslations(locale);
+---
+
+<section class="relative py-20 sm:py-28 md:py-36 lg:py-44 overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-b from-bg-code via-bg-primary to-bg-primary" />
+
+  <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <ScrollReveal client:visible className="text-center mb-16">
+      <p class="text-text-tertiary text-sm font-mono uppercase tracking-widest mb-6">Ce que disent les leaders tech</p>
+    </ScrollReveal>
+
+    <div class="grid md:grid-cols-2 gap-8 lg:gap-12">
+      <!-- Quote Anthropic -->
+      <ScrollReveal client:visible delay={0.1}>
+        <blockquote class="relative p-8 lg:p-10 rounded-2xl bg-bg-secondary/40 border border-white/5 hover:border-warning/20 transition-all duration-300">
+          <div class="text-warning text-4xl font-display mb-4">"</div>
+          <p class="text-lg sm:text-xl text-text-primary leading-relaxed mb-6">
+            {t.hero.quotes[0].text}
+          </p>
+          <footer class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-warning/10 flex items-center justify-center">
+              <span class="text-warning font-bold text-sm">DA</span>
+            </div>
+            <div>
+              <span class="text-text-primary font-semibold block">{t.hero.quotes[0].author}</span>
+              <span class="text-text-secondary text-sm">CEO <span class="text-[#E07B3C] font-medium">Anthropic</span>, 2025</span>
+            </div>
+          </footer>
+        </blockquote>
+      </ScrollReveal>
+
+      <!-- Quote Google -->
+      <ScrollReveal client:visible delay={0.2}>
+        <blockquote class="relative p-8 lg:p-10 rounded-2xl bg-bg-secondary/40 border border-white/5 hover:border-accent/20 transition-all duration-300">
+          <div class="text-accent text-4xl font-display mb-4">"</div>
+          <p class="text-lg sm:text-xl text-text-primary leading-relaxed mb-6">
+            {t.hero.quotes[1].text}
+          </p>
+          <footer class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center">
+              <span class="text-accent font-bold text-sm">SP</span>
+            </div>
+            <div>
+              <span class="text-text-primary font-semibold block">{t.hero.quotes[1].author}</span>
+              <span class="text-text-secondary text-sm">CEO
+                <span class="inline-flex">
+                  <span class="text-[#4285F4] font-medium">G</span><span class="text-[#EA4335] font-medium">o</span><span class="text-[#FBBC05] font-medium">o</span><span class="text-[#4285F4] font-medium">g</span><span class="text-[#34A853] font-medium">l</span><span class="text-[#EA4335] font-medium">e</span>
+                </span>, 2025
+              </span>
+            </div>
+          </footer>
+        </blockquote>
+      </ScrollReveal>
+    </div>
+  </div>
+</section>

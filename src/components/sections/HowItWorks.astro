@@ -11,20 +11,27 @@ const t = getTranslations(locale);
 
 // Couleurs des steps (modifiables dans tailwind.config.mjs)
 const stepColors = [
-  { border: 'border-step-1', text: 'text-step-1' },  // Violet
-  { border: 'border-step-2', text: 'text-step-2' },  // Orange
-  { border: 'border-step-3', text: 'text-step-3' },  // Vert
-  { border: 'border-step-4', text: 'text-step-4' },  // Rouge
+  { border: 'border-step-1', text: 'text-step-1' },  // Orange
+  { border: 'border-step-2', text: 'text-step-2' },  // Vert
+  { border: 'border-step-3', text: 'text-step-3' },  // Orange
+  { border: 'border-step-4', text: 'text-step-4' },  // Vert
+];
+
+const stepMascots = [
+  '/images/mascot/thinking.svg',   // Étape 1 : Choisis ton langage
+  '/images/mascot/teaching.svg',   // Étape 2 : Entraîne-toi
+  '/images/mascot/proud.svg',      // Étape 3 : Progresse
+  '/images/mascot/excited.svg',    // Étape 4 : Maîtrise
 ];
 ---
 
-<section id="how-it-works" class="relative py-12 sm:py-16 md:py-24 lg:py-32 overflow-hidden">
+<section id="how-it-works" class="relative py-20 sm:py-28 md:py-36 lg:py-44 overflow-hidden">
   <!-- Background pattern -->
   <div class="absolute inset-0 opacity-[0.015]" style="background-image: repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(255, 149, 0, 0.5) 39px, rgba(255, 149, 0, 0.5) 40px), repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(255, 149, 0, 0.5) 39px, rgba(255, 149, 0, 0.5) 40px);" />
 
   <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Header -->
-    <ScrollReveal client:visible className="text-center mb-16">
+    <ScrollReveal client:visible className="text-center mb-20 lg:mb-24">
       <h2 class="section-title mb-4">
         {t.howItWorks.title}
       </h2>
@@ -36,7 +43,7 @@ const stepColors = [
     <!-- Steps -->
     <div class="relative">
       <!-- Connecting line (desktop) - positioned at center of circles (32px from top) -->
-      <div class="hidden lg:block absolute top-8 left-[12%] right-[12%] h-0.5" style="background: linear-gradient(to right, #8B5CF6 0%, #FF9500 33%, #30D158 66%, #FF453A 100%);" />
+      <div class="hidden lg:block absolute top-8 left-[12%] right-[12%] h-0.5" style="background: linear-gradient(to right, #FF9500 0%, #30D158 33%, #FF9500 66%, #30D158 100%);" />
 
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-6">
         {t.howItWorks.steps.map((step, index) => {
@@ -48,14 +55,21 @@ const stepColors = [
               direction="up"
             >
               <div class="relative text-center">
-                <!-- Number circle -->
-                <div class={`relative z-10 w-16 h-16 mx-auto lg:ml-24 lg:mr-8 mb-6 rounded-full bg-bg-secondary border-2 flex items-center justify-center font-bold text-xl ${colors.border} ${colors.text}`}>
-                  {step.number}
+                <!-- Mascotte + number badge -->
+                <div class="relative z-10 w-20 h-20 lg:w-24 lg:h-24 mx-auto mb-6">
+                  <img
+                    src={stepMascots[index]}
+                    alt={`Étape ${step.number}`}
+                    class="w-full h-full"
+                  />
+                  <span class={`absolute -top-1 -right-1 w-7 h-7 rounded-full bg-bg-secondary border-2 flex items-center justify-center font-mono font-bold text-xs ${colors.border} ${colors.text}`}>
+                    {step.number}
+                  </span>
                 </div>
 
                 <!-- Content -->
-                <div class="lg:ml-18 lg:mr-0">
-                  <h3 class="text-xl font-bold mb-2">
+                <div>
+                  <h3 class="text-xl font-mono font-bold mb-2">
                     {step.title}
                   </h3>
                   <p class="text-text-secondary text-sm leading-relaxed">

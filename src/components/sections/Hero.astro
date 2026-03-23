@@ -43,48 +43,18 @@ const t = getTranslations(locale);
         </Badge>
 
         <!-- Main headline -->
-        <h1 class="text-3xl xs:text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-balance animate-slide-up animation-delay-100">
+        <h1 class="text-3xl xs:text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-mono font-bold tracking-tight text-balance animate-slide-up animation-delay-100">
           {t.hero.title}
           <br />
-          <span class="gradient-text italic">{t.hero.titleHighlight}</span>
+          <span class="text-accent font-extrabold">{t.hero.titleHighlight}</span>
           <br />
           {t.hero.titleEnd}
         </h1>
 
-        <!-- Quotes -->
-        <div class="space-y-6 max-w-xl mx-auto lg:mx-0 animate-slide-up animation-delay-200">
-          <!-- Quote Anthropic -->
-          <blockquote class="relative pl-4 border-l-2 border-warning">
-            <p class="text-base sm:text-lg text-text-secondary italic">
-              "{t.hero.quotes[0].text}"
-            </p>
-            <footer class="mt-1.5 text-sm">
-              <span class="text-text-secondary font-medium">{t.hero.quotes[0].author}</span>
-              <span class="text-text-secondary/70"> — CEO </span>
-              <span class="text-[#E07B3C] font-medium">Anthropic</span>
-              <span class="text-text-secondary/70">, 2025</span>
-            </footer>
-          </blockquote>
-          <!-- Quote Google -->
-          <blockquote class="relative pl-4 border-l-2 border-warning">
-            <p class="text-base sm:text-lg text-text-secondary italic">
-              "{t.hero.quotes[1].text}"
-            </p>
-            <footer class="mt-1.5 text-sm">
-              <span class="text-text-secondary font-medium">{t.hero.quotes[1].author}</span>
-              <span class="text-text-secondary/70"> — CEO </span>
-              <span class="inline-flex">
-                <span class="text-[#4285F4] font-medium">G</span>
-                <span class="text-[#EA4335] font-medium">o</span>
-                <span class="text-[#FBBC05] font-medium">o</span>
-                <span class="text-[#4285F4] font-medium">g</span>
-                <span class="text-[#34A853] font-medium">l</span>
-                <span class="text-[#EA4335] font-medium">e</span>
-              </span>
-              <span class="text-text-secondary/70">, 2025</span>
-            </footer>
-          </blockquote>
-        </div>
+        <!-- Subtitle -->
+        <p class="text-lg sm:text-xl text-text-secondary max-w-lg mx-auto lg:mx-0 animate-slide-up animation-delay-200">
+          La première app pour apprendre à <span class="text-accent font-semibold">lire</span> du code, pas à l'écrire.
+        </p>
 
         <!-- CTA Buttons -->
         <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-slide-up animation-delay-300">
@@ -127,11 +97,17 @@ const t = getTranslations(locale);
         </div>
       </div>
 
-      <!-- Right: Phone mockup -->
+      <!-- Right: Phone mockup + mascotte -->
       <div class="relative flex justify-center lg:justify-end animate-fade-in animation-delay-200">
         <PhoneMockup
           client:visible
           screenshot="/images/screenshots/home.png"
+        />
+        <!-- Mascotte waiving -->
+        <img
+          src="/images/mascot/waiving.svg"
+          alt="ReadKode mascotte"
+          class="absolute -bottom-4 -left-8 lg:-left-16 w-20 h-20 lg:w-28 lg:h-28 animate-float z-20"
         />
       </div>
     </div>

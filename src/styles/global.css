@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Jersey+25&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700;800&family=Jersey+25&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -20,7 +20,7 @@
   }
 
   body {
-    font-family: 'JetBrains Mono', 'SF Mono', Monaco, 'Courier New', monospace;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
     background-color: #1A1919;
     color: #FFFFFF;
     min-height: 100vh;
@@ -88,7 +88,7 @@
 
   /* Responsive section typography */
   .section-title {
-    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight text-balance;
+    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight text-balance font-mono;
   }
 
   .section-subtitle {
