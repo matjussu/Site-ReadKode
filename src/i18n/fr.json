@@ -9,7 +9,7 @@
     "download": "Télécharger"
   },
   "hero": {
-    "badge": "Bientôt disponible",
+    "badge": "Lancement 12 mai 2026",
     "title": "Apprends à",
     "titleHighlight": "LIRE   ",
     "titleEnd": "Du code",
@@ -34,16 +34,16 @@
   "problem": {
     "title": "Le problème que personne ne résout",
     "stat1": {
-      "value": "95%",
+      "value": "80%",
       "label": "du temps dev passé à lire du code",
-      "source": "Microsoft Research",
-      "sourceDetail": "Dora 2025"
+      "source": "Peter Hallam",
+      "sourceDetail": "Microsoft, 2006"
     },
     "stat2": {
-      "value": "46%",
-      "label": "du code écrit par l'IA en 2025",
-      "source": "GitHub",
-      "sourceDetail": "Octoverse Report 2025"
+      "value": "27%",
+      "label": "du code de production écrit par l'IA",
+      "source": "Laura Tacho, DX",
+      "sourceDetail": "Research 2026"
     },
     "stat3": {
       "value": "0",
@@ -69,7 +69,7 @@
       {
         "icon": "target",
         "title": "Apprendre à LIRE",
-        "description": "50+ exercices interactifs. Prédis le output, trouve les erreurs, trace les variables."
+        "description": "2\u00A0800+ exercices interactifs. Prédis le output, trouve les erreurs, trace les variables."
       },
       {
         "icon": "robot",
@@ -125,7 +125,7 @@
   },
   "cta": {
     "title": "Prêt à lire du code comme un pro ?",
-    "subtitle": "Rejoins des milliers de développeurs qui apprennent autrement.",
+    "subtitle": "Rejoins la liste d'attente.",
     "button": "Rejoindre la waitlist",
     "emailPlaceholder": "ton@email.com"
   },
@@ -134,6 +134,6 @@
     "legal": "Mentions légales",
     "privacy": "Confidentialité",
     "contact": "Contact",
-    "copyright": "© 2025 ReadKode. Tous droits réservés."
+    "copyright": "© 2026 ReadKode. Tous droits réservés."
   }
 }

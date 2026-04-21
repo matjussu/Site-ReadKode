@@ -9,7 +9,7 @@
     "download": "Download"
   },
   "hero": {
-    "badge": "Coming soon",
+    "badge": "Launching May 12, 2026",
     "title": "Learn to",
     "titleHighlight": "READ code",
     "titleEnd": "",
@@ -34,16 +34,16 @@
   "problem": {
     "title": "The problem nobody solves",
     "stat1": {
-      "value": "95%",
+      "value": "80%",
       "label": "of dev time spent reading code",
-      "source": "Microsoft Research",
-      "sourceDetail": "Dora 2025"
+      "source": "Peter Hallam",
+      "sourceDetail": "Microsoft, 2006"
     },
     "stat2": {
-      "value": "46%",
-      "label": "of code written by AI in 2025",
-      "source": "GitHub",
-      "sourceDetail": "Octoverse Report 2025"
+      "value": "27%",
+      "label": "of production code is AI-authored",
+      "source": "Laura Tacho, DX",
+      "sourceDetail": "Research 2026"
     },
     "stat3": {
       "value": "0",
@@ -69,7 +69,7 @@
       {
         "icon": "target",
         "title": "Learn to READ",
-        "description": "50+ interactive exercises. Predict output, find errors, trace variables."
+        "description": "2,800+ interactive exercises. Predict output, find errors, trace variables."
       },
       {
         "icon": "robot",
@@ -125,7 +125,7 @@
   },
   "cta": {
     "title": "Ready to read code like a pro?",
-    "subtitle": "Join thousands of developers who learn differently.",
+    "subtitle": "Join the waitlist.",
     "button": "Join the waitlist",
     "emailPlaceholder": "your@email.com"
   },
@@ -134,6 +134,6 @@
     "legal": "Legal",
     "privacy": "Privacy",
     "contact": "Contact",
-    "copyright": "© 2025 ReadKode. All rights reserved."
+    "copyright": "© 2026 ReadKode. All rights reserved."
   }
 }
