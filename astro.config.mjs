@@ -7,7 +7,7 @@ import PinyAstro from "@pinegrow/piny-astro";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://readkode.app', // À modifier avec le vrai domaine
+  site: 'https://readkode.com',
   integrations: [
     react(),
     PinyAstro({ hotReload: false }),

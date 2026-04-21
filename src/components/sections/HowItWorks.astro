@@ -33,7 +33,24 @@ const stepColors = [
       </p>
     </ScrollReveal>
 
-    <!-- Steps -->
+    <!-- Demo video (landscape, autoplay muted loop) -->
+    <ScrollReveal client:visible className="mb-16">
+      <div class="relative max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl border border-white/5 bg-bg-secondary">
+        <video
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          class="w-full h-auto aspect-video object-cover"
+          aria-label="ReadKode — Comment ça marche"
+        >
+          <source src="/videos/how-it-works.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </ScrollReveal>
+
+    <!-- Steps (accessible textual breakdown) -->
     <div class="relative">
       <!-- Connecting line (desktop) - positioned at center of circles (32px from top) -->
       <div class="hidden lg:block absolute top-8 left-[12%] right-[12%] h-0.5" style="background: linear-gradient(to right, #8B5CF6 0%, #FF9500 33%, #30D158 66%, #FF453A 100%);" />
