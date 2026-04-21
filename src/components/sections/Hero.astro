@@ -127,42 +127,12 @@ const t = getTranslations(locale);
         </div>
       </div>
 
-      <!-- Right: Hero video in iPhone frame -->
+      <!-- Right: Phone mockup 3D (scroll + mousemove parallax) -->
       <div class="relative flex justify-center lg:justify-end animate-fade-in animation-delay-200">
-        <div class="relative mx-auto w-full max-w-[260px] sm:max-w-[280px] md:max-w-[320px]">
-          <!-- Phone body -->
-          <div class="relative bg-[#1a1a1a] rounded-[2.5rem] sm:rounded-[3rem] p-2.5 sm:p-3 shadow-2xl border border-[#333]">
-            <!-- Dynamic Island -->
-            <div class="absolute top-3 sm:top-4 left-1/2 -translate-x-1/2 w-[80px] sm:w-[100px] h-[22px] sm:h-[28px] bg-black rounded-full z-20" />
-
-            <!-- Screen with autoplay video (poster fallback = home.png screenshot) -->
-            <div class="relative rounded-[2rem] sm:rounded-[2.5rem] overflow-hidden bg-black aspect-[9/19.5]">
-              <video
-                autoplay
-                muted
-                loop
-                playsinline
-                preload="metadata"
-                poster="/images/screenshots/home.png"
-                class="w-full h-full object-cover object-top"
-                aria-label="ReadKode app preview"
-              >
-                <source src="/videos/hero.mp4" type="video/mp4" />
-                <img
-                  src="/images/screenshots/home.png"
-                  alt="ReadKode app screenshot"
-                  class="w-full h-full object-cover object-top"
-                />
-              </video>
-
-              <!-- Bottom home indicator -->
-              <div class="absolute bottom-1.5 sm:bottom-2 left-1/2 -translate-x-1/2 w-[80px] sm:w-[100px] h-[4px] sm:h-[5px] bg-white/30 rounded-full z-10" />
-            </div>
-          </div>
-
-          <!-- Glow effect -->
-          <div class="absolute inset-0 -z-10 bg-accent/20 blur-3xl rounded-full" />
-        </div>
+        <PhoneMockup
+          client:visible
+          screenshot="/images/screenshots/home.png"
+        />
       </div>
     </div>
   </div>
