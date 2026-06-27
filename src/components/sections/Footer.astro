@@ -103,7 +103,7 @@ const t = getTranslations(locale);
             </a>
           </li>
           <li>
-            <a href="/contact" class="text-text-secondary hover:text-accent transition-colors duration-200 text-sm">
+            <a href={locale === 'fr' ? '/contact' : '/en/contact'} class="text-text-secondary hover:text-accent transition-colors duration-200 text-sm">
               {t.footer.contact}
             </a>
           </li>
