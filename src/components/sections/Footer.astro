@@ -93,17 +93,17 @@ const t = getTranslations(locale);
         <h4 class="text-text-primary font-semibold mb-4">Legal</h4>
         <ul class="space-y-3">
           <li>
-            <a href="/legal" class="text-text-secondary hover:text-accent transition-colors duration-200 text-sm">
+            <a href={locale === 'fr' ? '/legal' : '/en/legal'} class="text-text-secondary hover:text-accent transition-colors duration-200 text-sm">
               {t.footer.legal}
             </a>
           </li>
           <li>
-            <a href="/privacy" class="text-text-secondary hover:text-accent transition-colors duration-200 text-sm">
+            <a href={locale === 'fr' ? '/privacy' : '/en/privacy'} class="text-text-secondary hover:text-accent transition-colors duration-200 text-sm">
               {t.footer.privacy}
             </a>
           </li>
           <li>
-            <a href="/contact" class="text-text-secondary hover:text-accent transition-colors duration-200 text-sm">
+            <a href={locale === 'fr' ? '/contact' : '/en/contact'} class="text-text-secondary hover:text-accent transition-colors duration-200 text-sm">
               {t.footer.contact}
             </a>
           </li>

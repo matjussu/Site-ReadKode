@@ -1,0 +1,52 @@
+---
+import Layout from '../../components/layout/Layout.astro';
+
+const locale = 'en';
+const title = 'Contact and support | ReadKode';
+const description = 'Contact the ReadKode team: support, questions about the app and requests related to your data (GDPR).';
+---
+
+<Layout title={title} description={description} locale={locale}>
+  <section class="px-4 pb-24 pt-28 sm:px-6 sm:pt-32">
+    <article class="mx-auto max-w-2xl animate-fade-in">
+      <!-- Header -->
+      <header>
+        <h1 class="text-3xl font-bold tracking-tight text-text-primary sm:text-4xl">
+          Contact and support
+        </h1>
+        <p class="mt-2 text-sm text-text-secondary">
+          We read every message.
+        </p>
+      </header>
+
+      <hr class="my-8 border-white/5" />
+
+      <!-- Intro -->
+      <p class="leading-relaxed text-[#A1A1A6]">
+        A question, a bug, a suggestion or a request about your data? The ReadKode team is reachable by email. This is the official channel for app support, product feedback and requests related to your personal data (access, rectification, erasure and the other GDPR rights described in our privacy policy).
+      </p>
+
+      <!-- Email card -->
+      <div class="my-8 rounded-2xl border border-accent/20 bg-accent/10 p-6 text-center">
+        <p class="mb-2 text-xs font-bold uppercase tracking-wider text-text-secondary">
+          Write to us
+        </p>
+        <a
+          href="mailto:service@readkode.com"
+          class="text-xl font-bold text-accent transition-colors hover:text-accent-light sm:text-2xl"
+        >
+          service@readkode.com
+        </a>
+      </div>
+
+      <p class="leading-relaxed text-[#A1A1A6]">
+        We do our best to reply quickly. For requests related to your data, please include the email address associated with your account so we can handle your request.
+      </p>
+
+      <div class="mt-10 text-center text-xs text-text-secondary">
+        <p>ReadKode, personal project, France</p>
+        <p>France, service@readkode.com</p>
+      </div>
+    </article>
+  </section>
+</Layout>

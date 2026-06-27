@@ -34,7 +34,7 @@ ReadKode est une application mobile éducative qui enseigne aux développeurs co
 
 ## Contact
 
-- Email : contact@readkode.com
+- Email : service@readkode.com
 
 ## Statut
 
