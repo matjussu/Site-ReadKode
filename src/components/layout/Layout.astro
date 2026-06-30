@@ -1,4 +1,5 @@
 ---
+import Analytics from '@vercel/analytics/astro';
 import Navbar from './Navbar.astro';
 import Footer from '../sections/Footer.astro';
 import '../../styles/global.css';
@@ -62,6 +63,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta name="theme-color" content="#1A1919" />
 
     <title>{title}</title>
+
+    <!-- Vercel Web Analytics -->
+    <Analytics />
 
     <!-- Preconnect to Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
